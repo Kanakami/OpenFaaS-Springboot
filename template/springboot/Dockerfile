@@ -35,8 +35,11 @@ WORKDIR /home/app
 
 # 前面提取命令执行成功后取得的文件，用于镜像中启动应用所需
 COPY --from=builder /home/app/dependencies/ ./
+RUN true
 COPY --from=builder /home/app/spring-boot-loader/ ./
+RUN true
 COPY --from=builder /home/app/snapshot-dependencies/ ./
+RUN true
 COPY --from=builder /home/app/application/ ./
 
 # 指定容器的运行帐号
